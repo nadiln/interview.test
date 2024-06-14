@@ -24,9 +24,21 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
 type UseHomeScreenProps = HomeScreenProps["navigation"];
 
 function useHomeScreen(navigation: UseHomeScreenProps) {
-  const navigateToScreen = () => {
-    console.log("navigate to the screen");
-    navigation.navigate("CalculatorScreen");
+  const navigateToScreen = (challenge: string) => {
+    console.log("navigate to the screen", challenge);
+
+    if (challenge === "CH1") {
+      navigation.navigate("CalculatorScreen");
+      return;
+    }
+    if (challenge === "CH2") {
+      navigation.navigate("ChallengeTwoScreen");
+      return;
+    }
+    if (challenge === "CH3") {
+      navigation.navigate("ChallengeThreeScreen");
+      return;
+    }
   };
 
   const goBackFunc = () => {
